@@ -139,6 +139,7 @@ int view_address_book(RecordNodePtr currentPtr)
 
 int main(void)
   {  
+     RecordNodePtr temporalPtr;
      RecordNodePtr recordPtr = NULL;
      int bool;
      while (1)
@@ -165,6 +166,12 @@ int main(void)
                    else printf ("Phonebook is empty\n");
                   break;
                case 5:
+                  while (*topPtr != NULL)
+                      {
+                          tempalPtr =*topPtr;
+                          *topPtr = (*topPtr)->nextPointer;
+                          free (tempalPtr);
+                      }
                   return 0;
                default:
                   break;
